@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7c920840798923458c07b2f96439a39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 100
+  movementSpeed: 500
   moveJoystick: {fileID: 0}
 --- !u!114 &2064264405228854211
 MonoBehaviour:
@@ -131,8 +131,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackJoystick: {fileID: 0}
+  rotateSpeed: 3
+  direction: {x: 0, y: 0}
+  shootRate: 0.5
   bulletPrefab: {fileID: 6700375841168753256, guid: 402003860218d79429c9eaaf61a3b8a0,
     type: 3}
+  firePoint: {fileID: 1253776561090660098}
 --- !u!1 &3697066670670619549
 GameObject:
   m_ObjectHideFlags: 0
