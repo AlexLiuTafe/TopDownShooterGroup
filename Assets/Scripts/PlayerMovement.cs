@@ -21,7 +21,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move()
     {
-        rigid.velocity = ( new Vector2(moveJoystick.Horizontal,moveJoystick.Vertical)* movementSpeed * Time.deltaTime);
+        //using vector.normalized always return max movementspeed
+        rigid.velocity = ( new Vector2(moveJoystick.Horizontal,moveJoystick.Vertical).normalized* movementSpeed * Time.deltaTime);
 		
 	}
 

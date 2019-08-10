@@ -67,9 +67,12 @@ public class PlayerAttack : MonoBehaviour
 		lookDirection = direction;
 		float angle = Mathf.Atan2(lookDirection.y, direction.x) * Mathf.Rad2Deg;
 		Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-		transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotateSpeed * Time.deltaTime);
+        //Snap to the look direction
+		transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotateSpeed);
+        //rotate slowly according to time.delta time
+       // transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotateSpeed * Time.deltaTime);
 
-	}
+    }
 }
 
 

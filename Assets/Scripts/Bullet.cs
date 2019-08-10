@@ -37,7 +37,7 @@ public class Bullet : MonoBehaviour
         Enemy enemy = collision.GetComponent<Enemy>();
         if(enemy)
         {
-            //enemy.TakeDamage(damage);
+            enemy.TakeDamage(damage);
             Destroy(gameObject);
         }
         
