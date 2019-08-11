@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 2064264405228854223}
   - component: {fileID: 2064264405228854210}
   - component: {fileID: 2064264405228854211}
-  m_Layer: 0
+  - component: {fileID: 271930664564373640}
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -136,6 +137,22 @@ MonoBehaviour:
   shootRate: 0.3
   bulletPrefab: {fileID: 6700375841168753256, guid: 402003860218d79429c9eaaf61a3b8a0,
     type: 3}
+--- !u!58 &271930664564373640
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064264405228854222}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.58, y: 0.12}
+  serializedVersion: 2
+  m_Radius: 1
 --- !u!1 &3697066670670619549
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,7 +162,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1253776561090660098}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +177,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3697066670670619549}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.31, y: 0, z: 0}
+  m_LocalPosition: {x: 2.887, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2064264405228854221}

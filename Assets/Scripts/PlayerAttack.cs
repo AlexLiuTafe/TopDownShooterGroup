@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [Header("References")]
+	//PLAYER HAS A LAYER SO DOES NOT COLLIDE WITH ENEMY'S COLLIDER AND PUSH ENEMY AROUND
+
+	[Header("References")]
     public MasterController attackJoystick;
+	private Transform spawnParent; //for storing in hierarchy purpose
 
     [Header("Attributes")]
     public float rotateSpeed;
 	private Rigidbody2D rigid;
 	public Vector2 direction;
 	private Vector2 lookDirection;
+	[Header("PlayerHealth")]
+	public int health = 50;
+	
 
 	[Header("SHooting")]
     private float shootTimer;
@@ -30,6 +36,7 @@ public class PlayerAttack : MonoBehaviour
 
 		firePoint = GameObject.Find("FirePoint").GetComponent<Transform>();
 		rigid = GetComponent<Rigidbody2D>();
+		spawnParent = GameObject.Find("BulletClones").GetComponent<Transform>();
     }
     void Update()
     {
@@ -39,6 +46,7 @@ public class PlayerAttack : MonoBehaviour
 		if(attackJoystick.Direction !=Vector2.zero)
 		{
 			LookDirection();
+			//Time.time always keep going up 
 			if (Time.time > shootTimer)
 			{
 				shootTimer = Time.time + shootRate;
@@ -46,17 +54,18 @@ public class PlayerAttack : MonoBehaviour
 			}
 		}
 		direction = attackJoystick.Direction;
-	
+
 		
 	}
     public void Shoot()
     {
 
         GameObject bulletGo = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-        Bullet bullet = bulletGo.GetComponent<Bullet>();
+		Bullet bullet = bulletGo.GetComponent<Bullet>();
         Destroy(bulletGo, 1f);
+		bulletGo.transform.SetParent(spawnParent);
 
-    }
+	}
     public void Aim()
     {
 		rigid.velocity = (new Vector2(attackJoystick.Horizontal, attackJoystick.Vertical) * 0 * Time.deltaTime);
@@ -73,6 +82,14 @@ public class PlayerAttack : MonoBehaviour
        // transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotateSpeed * Time.deltaTime);
 
     }
+	public void PlayerTakeDamage(int damage)
+	{
+		health -= damage;
+		if (health <= 0)
+		{
+			Destroy(gameObject);
+		}
+	}
 }
 
 
