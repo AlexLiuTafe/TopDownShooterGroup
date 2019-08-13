@@ -31,7 +31,7 @@ public class PlayerAttack : MonoBehaviour
     [Header("UI")]
     public GameObject deathPanel;
     public Slider healthSlider;
-    public Image healthFill;
+    //public Image healthFill;
 
 	private void OnDrawGizmos()
 	{
