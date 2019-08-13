@@ -11,16 +11,16 @@ public class Enemy : MonoBehaviour
     [Header("Attributes")]
     public int health = 5;
     public float speed = 3f;
-	public float stopDistance = 1.5f;
-	[Header("EnemyAttack")]
-	public int damage = 1;
-	public float attackRadius = 0.5f;
-	private float attackTimer;
-	public float attackRate =2f;
+    public float stopDistance = 1.5f;
+    [Header("EnemyAttack")]
+    public int damage = 1;
+    public float attackRadius = 0.5f;
+    private float attackTimer;
+    public float attackRate = 2f;
 
 
 
-	private void OnDrawGizmos()
+    private void OnDrawGizmos()
 	{
 
 		Gizmos.color = Color.red;
