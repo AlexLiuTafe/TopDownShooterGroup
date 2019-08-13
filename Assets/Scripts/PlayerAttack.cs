@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -16,16 +17,21 @@ public class PlayerAttack : MonoBehaviour
 	public Vector2 direction;
 	private Vector2 lookDirection;
 	[Header("PlayerHealth")]
-	public int health = 50;
+	public float health = 50;
+    public float curHealth;
 	
 
 	[Header("SHooting")]
     private float shootTimer;
-    public float shootRate = 2f;
+    public float shootRate = 10f;
     public GameObject bulletPrefab;
 	private Transform playerPos;
 	private Transform firePoint;
-	
+
+    [Header("UI")]
+    public GameObject deathPanel;
+    public Slider healthSlider;
+    public Image healthFill;
 
 	private void OnDrawGizmos()
 	{
@@ -55,13 +61,14 @@ public class PlayerAttack : MonoBehaviour
 		}
 		direction = attackJoystick.Direction;
 
+        healthSlider.value = Mathf.Clamp01(curHealth / health);
 		
 	}
     public void Shoot()
     {
 
         GameObject bulletGo = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-		Bullet bullet = bulletGo.GetComponent<Bullet>();
+		//Bullet bullet = bulletGo.GetComponent<Bullet>();
         Destroy(bulletGo, 1f);
 		bulletGo.transform.SetParent(spawnParent);
 
@@ -84,13 +91,31 @@ public class PlayerAttack : MonoBehaviour
     }
 	public void PlayerTakeDamage(int damage)
 	{
-		health -= damage;
-		if (health <= 0)
+		//health -= damage;
+		curHealth -= damage;
+		if (curHealth <= 0)
 		{
 			Destroy(gameObject);
-		}
-	}
+            deathPanel.SetActive(true);
+            healthSlider.enabled = false;
+
+        }
+    }
+    void ManageHealthBar()
+    {
+        if (curHealth <= 0 && healthFill.enabled)
+        {
+            Debug.Log("Dead");
+            healthFill.enabled = false;
+        }
+        else if (!healthFill.enabled && curHealth > 0)
+        {
+            Debug.Log("Revive");
+            healthFill.enabled = true;
+        }
+    }
 }
+
 
 
 

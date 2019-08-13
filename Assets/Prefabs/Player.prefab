@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2064264405228854223}
   - component: {fileID: 2064264405228854210}
   - component: {fileID: 2064264405228854211}
-  - component: {fileID: 271930664564373640}
+  - component: {fileID: 8232909218535959427}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -134,11 +134,16 @@ MonoBehaviour:
   attackJoystick: {fileID: 0}
   rotateSpeed: 1
   direction: {x: 0, y: 0}
+  health: 50
+  curHealth: 0
   shootRate: 0.3
   bulletPrefab: {fileID: 6700375841168753256, guid: 402003860218d79429c9eaaf61a3b8a0,
     type: 3}
---- !u!58 &271930664564373640
-CircleCollider2D:
+  deathPanel: {fileID: 0}
+  healthSlider: {fileID: 0}
+  healthFill: {fileID: 0}
+--- !u!61 &8232909218535959427
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -150,9 +155,19 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.58, y: 0.12}
+  m_Offset: {x: 1.2671057, y: 0.06720251}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.11131727, y: 0.4636743}
+    oldSize: {x: 3.26, y: 1.85}
+    newSize: {x: 3.26, y: 1.85}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 1
+  m_Size: {x: 3.26, y: 1.85}
+  m_EdgeRadius: 0
 --- !u!1 &3697066670670619549
 GameObject:
   m_ObjectHideFlags: 0

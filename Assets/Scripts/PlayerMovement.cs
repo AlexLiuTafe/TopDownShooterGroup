@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float movementSpeed = 10f;
+    public float movementSpeed = 20f;
     public MasterController moveJoystick;
     Rigidbody2D rigid;
 
@@ -25,5 +25,5 @@ public class PlayerMovement : MonoBehaviour
         rigid.velocity = ( new Vector2(moveJoystick.Horizontal,moveJoystick.Vertical).normalized* movementSpeed * Time.deltaTime);
 		
 	}
-
+   
 }
