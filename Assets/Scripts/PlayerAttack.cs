@@ -25,11 +25,13 @@ public class PlayerAttack : MonoBehaviour
     private float shootTimer;
     public float shootRate = 10f;
     public GameObject bulletPrefab;
+    public GameObject powerBulletPrefab;
 	private Transform playerPos;
 	private Transform firePoint;
 
     [Header("UI")]
     public GameObject deathPanel;
+    public GameObject healthPanel;
     public Slider healthSlider;
     public Image healthFill;
 
@@ -71,8 +73,18 @@ public class PlayerAttack : MonoBehaviour
 		//Bullet bullet = bulletGo.GetComponent<Bullet>();
         Destroy(bulletGo, 1f);
 		bulletGo.transform.SetParent(spawnParent);
+        if (true)
+        {
 
+        }
 	}
+    public void PowerUp()
+    {
+        GameObject bulletGo = Instantiate(powerBulletPrefab, firePoint.position, Quaternion.identity);
+        //Bullet bullet = bulletGo.GetComponent<Bullet>();
+        Destroy(bulletGo, 1f);
+        bulletGo.transform.SetParent(spawnParent);
+    }
     public void Aim()
     {
 		rigid.velocity = (new Vector2(attackJoystick.Horizontal, attackJoystick.Vertical) * 0 * Time.deltaTime);
@@ -97,6 +109,7 @@ public class PlayerAttack : MonoBehaviour
 		{
 			Destroy(gameObject);
             deathPanel.SetActive(true);
+            healthPanel.SetActive(false);
             healthSlider.enabled = false;
 
         }
