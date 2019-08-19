@@ -31,7 +31,7 @@ public class PlayerAttack : MonoBehaviour
 
     [Header("UI")]
     public GameObject deathPanel;
-    public GameObject healthPanel;
+    public GameObject gameUIPanel;
     public Slider healthSlider;
     public Image healthFill;
 
@@ -109,7 +109,7 @@ public class PlayerAttack : MonoBehaviour
 		{
 			Destroy(gameObject);
             deathPanel.SetActive(true);
-            healthPanel.SetActive(false);
+            gameUIPanel.SetActive(false);
             healthSlider.enabled = false;
 
         }
