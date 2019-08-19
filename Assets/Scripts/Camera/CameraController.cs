@@ -5,6 +5,8 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public GameObject follow;
+    public Vector2 minimumBoundary;
+    public Vector2 maximumBoundary;
 
     public float speed = 2f;
 
@@ -19,5 +21,4 @@ public class CameraController : MonoBehaviour
         this.transform.position = position;
 
     }
-
 }

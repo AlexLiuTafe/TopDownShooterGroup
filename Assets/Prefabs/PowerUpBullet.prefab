@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5822293877291701010}
   - component: {fileID: 3910706810144878231}
   m_Layer: 0
-  m_Name: Bullet 1
+  m_Name: PowerUpBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -129,8 +129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b42045b890bf24cafa265c59e9692d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  speed: 30
+  damage: 3
+  speed: 50
 --- !u!58 &3910706810144878231
 CircleCollider2D:
   m_ObjectHideFlags: 0

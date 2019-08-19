@@ -6,7 +6,10 @@ public class PlayerMovement : MonoBehaviour
 {
     public float movementSpeed = 20f;
     public MasterController moveJoystick;
+    public Vector2 minimumBoundary;
+    public Vector2 maximumBoundary;
     Rigidbody2D rigid;
+
 
 	
 	private void Start()
@@ -17,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         Move();
+
     }
 
     public void Move()
